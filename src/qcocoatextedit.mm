@@ -44,7 +44,7 @@ void QCocoaTextEditPrivate::initPrivateView()
 QCocoaTextEdit::QCocoaTextEdit(QWidget *parent)
 :QCocoaScrollview(parent)
 {
-     setScrollViewPrivate(new QCocoaTextEditPrivate(this));
+     setViewPrivate(new QCocoaTextEditPrivate(this));
     
     QAction *copy = new QAction(this);
     copy->setShortcut(QKeySequence::Copy);

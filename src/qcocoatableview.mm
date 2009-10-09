@@ -50,7 +50,7 @@ QCocoaTableViewPrivate::QCocoaTableViewPrivate(QWidget *parent)
 QCocoaTableView::QCocoaTableView(QWidget *parent)
 :QCocoaScrollview(parent)
 {
-    setScrollViewPrivate(new QCocoaTableViewPrivate(this));
+    setViewPrivate(new QCocoaTableViewPrivate(this));
 }
 
 void QCocoaTableViewPrivate::initPrivateView()

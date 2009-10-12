@@ -21,18 +21,24 @@
 {
     qDebug() << "toolbarDefaultItemIdentifiers";
     return [NSArray arrayWithObjects:
-            NSToolbarFlexibleSpaceItemIdentifier,
+            NSToolbarShowColorsItemIdentifier,
+//            NSToolbarFlexibleSpaceItemIdentifier,
+            NSToolbarShowFontsItemIdentifier,
             NSToolbarSpaceItemIdentifier,
-            NSToolbarSeparatorItemIdentifier, nil];
+            NSToolbarSeparatorItemIdentifier,
+            NSToolbarPrintItemIdentifier, nil];
 }
 
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar
 {
     qDebug() << "toolbarAllowedItemIdentifiers";
     return [NSArray arrayWithObjects:
-            NSToolbarFlexibleSpaceItemIdentifier,
-            NSToolbarSpaceItemIdentifier,
-            NSToolbarSeparatorItemIdentifier, nil];
+                    NSToolbarShowColorsItemIdentifier,
+  //                  NSToolbarFlexibleSpaceItemIdentifier,
+                    NSToolbarShowFontsItemIdentifier,
+                    NSToolbarSpaceItemIdentifier,
+                    NSToolbarSeparatorItemIdentifier,
+                    NSToolbarPrintItemIdentifier, nil];
 }
 
 - (NSToolbarItem *) toolbar: (NSToolbar *)toolbar itemForItemIdentifier: (NSString *) itemIdent willBeInsertedIntoToolbar:(BOOL) willBeInserted
@@ -69,7 +75,8 @@ QCocoaToolBar::QCocoaToolBar()
 
     [d->toolbar setAllowsUserCustomization:YES];
     [d->toolbar setAutosavesConfiguration:YES];
-    [d->toolbar setDisplayMode:NSToolbarDisplayModeLabelOnly];
+    [d->toolbar setDisplayMode:NSToolbarDisplayModeIconAndLabel];
+
 
     [d->toolbar setDelegate: d->delegate];
 
@@ -88,5 +95,5 @@ QAction *QCocoaToolBar::addAction(const QString &text)
 void QCocoaToolBar::showInWindow(QWidget *window)
 {
     [qt_mac_window_for(window) setToolbar: d->toolbar];
-    [d->toolbar setVisible : YES];
+    [qt_mac_window_for(window) setShowsToolbarButton:YES];
 }

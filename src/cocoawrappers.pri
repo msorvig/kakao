@@ -5,11 +5,14 @@ HEADERS += $$PWD/qcocoatableview.h \
     qcocoascrollview.h \
     qcocoascrollview_p.h \
     qcocoabaseview.h \
-    qcocoabaseview_p.h
+    qcocoabaseview_p.h \
+    qcocoatoolbar.h \
+    qcocoautil.h
 SOURCES += $$PWD/qcocoatableview.mm \
     $$PWD/qcocoatextedit.mm \
     $$PWD/qcocoautil.mm \
     qcocoascrollview.mm \
-    qcocoabaseview.mm
+    qcocoabaseview.mm \
+    qcocoatoolbar.mm
 LIBS += -framework \
     AppKit

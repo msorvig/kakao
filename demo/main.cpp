@@ -1,13 +1,15 @@
 #include "qcocoatextedit.h"
 #include "qcocoatableview.h"
 #include "qcocoascrollview_p.h"
+#include "qcocoatoolbar.h"
+#include "qcocoautil.h"
 #include <QtGui>
 
 
 int main(int argc, char**argv)
 {
     QApplication app(argc, argv);
-//    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    QtCocoa::QMacCocoaAutoReleasePool pool;
     
     QWidget window;
 
@@ -35,6 +37,11 @@ int main(int argc, char**argv)
     window.setLayout(&layout);
     window.show();
     window.raise();
+
+    QCocoaToolBar toolbar;
+    toolbar.addAction("Button 1");
+    toolbar.addAction("Button 2");
+    toolbar.showInWindow(&window);
 
     //QCocoaScrollview test(&window, new QCocoaScrollviewPrivate(&test));
     

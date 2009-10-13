@@ -39,8 +39,25 @@ int main(int argc, char**argv)
     window.raise();
 
     QCocoaToolBar toolbar;
-    toolbar.addAction("Button 1");
-    toolbar.addAction("Button 2");
+
+    QAction *action1 = toolbar.addAction("Button 1");
+    action1->setToolTip("Press the Button 1");
+    QPixmap red(256, 256);
+    red.fill(QColor(Qt::red));
+    action1->setIcon(red);
+
+    QAction *action2 = toolbar.addAction("Button 2");
+    QPixmap blue(256, 256);
+    blue.fill(QColor(Qt::blue));
+    action2->setIcon(blue);
+    action2->setCheckable(true);
+
+    QAction *action3 = toolbar.addAction("Button 3");
+    QPixmap green(256, 256);
+    green.fill(QColor(Qt::green));
+    action3->setIcon(green);
+    action3->setCheckable(true);
+
     toolbar.showInWindow(&window);
 
     //QCocoaScrollview test(&window, new QCocoaScrollviewPrivate(&test));

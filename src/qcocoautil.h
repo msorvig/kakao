@@ -5,6 +5,8 @@
 #define QCOCOAUTIL_H
 
 class NSString;
+class NSArray;
+class NSImage;
 namespace QtCocoa
 {
     template <typename T>
@@ -45,11 +47,15 @@ namespace QtCocoa
         operator QString() const;
         operator CFStringRef() const;
         static QString toQString(CFStringRef cfstr);
+        QString toQString();
         static CFStringRef toCFStringRef(const QString &str);
         static NSString * toNSString(const QString &str);
     private:
         QString string;
     };
+
+    NSArray *toNSArray(const QList<QString> &stringList);
+    NSImage *toNSImage(const QPixmap &pixmap);
   
     class QMacCocoaAutoReleasePool
     {

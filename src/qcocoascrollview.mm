@@ -34,4 +34,3 @@ void QCocoaScrollviewPrivate::setDocumentView(NSView *contentView)
 {
     [reinterpret_cast<NSScrollView *>(cocoaView()) setDocumentView:contentView];
 }
-

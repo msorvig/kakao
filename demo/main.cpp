@@ -17,9 +17,9 @@ int main(int argc, char**argv)
 
     QCocoaTextEdit textEdit;
 
-    textEdit.setPlainText(QLatin1String("Here's to the lazy ones."));
-    textEdit.plainText();
-    qDebug() << textEdit.plainText();
+    QFile f("../../../example.html");
+    f.open(QIODevice::ReadOnly);
+    textEdit.setHtml(QString::fromUtf8(f.readAll()));
 
     layout.addWidget(&textEdit);
 

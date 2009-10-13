@@ -113,6 +113,7 @@ QCocoaToolBar::QCocoaToolBar()
 
     addStandardItem(NSToolbarShowColorsItemIdentifier);
     addStandardItem(NSToolbarShowFontsItemIdentifier);
+    addStandardItem(NSToolbarPrintItemIdentifier);
 }
 
 QCocoaToolBar::~QCocoaToolBar()

@@ -11,4 +11,7 @@ public:
 
     void setPlainText(const QString &text);
     QString plainText();
+
+    void setHtml(const QString &html);
+    QString html();
 };

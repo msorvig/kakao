@@ -67,3 +67,20 @@ QString QCocoaTextEdit::plainText()
     CFRetain(str);
     return QtCocoa::QCFString(str);
 }
+
+void QCocoaTextEdit::setHtml(const QString &html)
+{
+    QByteArray borkedHtml = html.toUtf8();
+    NSData *data = [NSData dataWithBytes : borkedHtml.constData() length : borkedHtml.count()];
+    NSURL *url = [NSURL URLWithString : QtCocoa::QCFString::toNSString("")];
+    NSAttributedString *attrString = [[NSAttributedString alloc]
+            initWithHTML: data baseURL: url documentAttributes: (NSDictionary **) NULL];
+    [[reinterpret_cast<QCocoaTextEditPrivate *>(d)->theTextView textStorage] setAttributedString: attrString];
+    [attrString release];
+}
+
+QString QCocoaTextEdit::html()
+{
+    return QString();
+}
+

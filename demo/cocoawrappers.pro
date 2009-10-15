@@ -6,5 +6,5 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += 
-SOURCES += main.cpp
+HEADERS += model.h
+SOURCES += main.cpp model.cpp

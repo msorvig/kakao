@@ -1,8 +1,9 @@
 #include "qcocoatextedit.h"
 #include "qcocoatableview.h"
-#include "qcocoascrollview_p.h"
+#include "qcocoatreeview.h"
 #include "qcocoatoolbar.h"
 #include "qcocoautil.h"
+#include "model.h"
 #include <QtGui>
 
 
@@ -25,15 +26,14 @@ int main(int argc, char**argv)
 
     QCocoaTableView tableView;
     layout.addWidget(&tableView);
-    QStringListModel stringListModel;
-    stringListModel.setStringList(QStringList() << "ein" << "zwei" << "drei"<< "ein" << "zwei" << "drei"<< "ein" << "zwei" << "drei"<< "ein" << "zwei" << "drei");
-    tableView.setModel(&stringListModel);
+    Model interviewDemoModel(100000, 100);
+    tableView.setModel(&interviewDemoModel);
 
-    QCocoaTableView treeView;
+    QCocoaTreeView treeView;
     layout.addWidget(&treeView);
     QDirModel dirModel;
     treeView.setModel(&dirModel);
-    
+
     window.setLayout(&layout);
     window.show();
     window.raise();

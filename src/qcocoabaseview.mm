@@ -28,7 +28,7 @@ void QCocoaBaseView::resizeEvent(QResizeEvent * event)
     rect.size.width = event->size().width();
     rect.size.height = event->size().height();
 
-    qDebug() << "resize" << event->size();
+//    qDebug() << "resize" << event->size();
 
     [cocoaView() setFrame : rect];
     [cocoaView() setNeedsDisplay:YES];

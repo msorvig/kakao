@@ -22,17 +22,20 @@ void QCocoaBaseView::setViewPrivate(QCocoaBaseViewPrivate *priv)
 
 void QCocoaBaseView::resizeEvent(QResizeEvent * event)
 {
+    QCocoaBaseView::setSize(event->size());
+}
+
+void QCocoaBaseView::setSize(QSize size)
+{
     NSRect rect;
     rect.origin.x = 0;
     rect.origin.y = 0;
-    rect.size.width = event->size().width();
-    rect.size.height = event->size().height();
-
-//    qDebug() << "resize" << event->size();
+    rect.size.width = size.width();
+    rect.size.height = size.height();
 
     [cocoaView() setFrame : rect];
     [cocoaView() setNeedsDisplay:YES];
- }
+}
 
 QSize QCocoaBaseView::minimumSizeHint() const
 {

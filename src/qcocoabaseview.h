@@ -15,6 +15,7 @@ public:
     QSize minimumSizeHint() const;
     QSize sizeHint() const;
     void resizeEvent(QResizeEvent * event);
+    void setSize(QSize size);
 
 protected:
     void setViewPrivate(QCocoaBaseViewPrivate *priv);
